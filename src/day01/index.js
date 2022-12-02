@@ -2,7 +2,7 @@ import run from "aocrunner";
 
 const calculateSum = (array) => array.reduce((acc, n) => acc + n, 0);
 
-const parseSection = (section) => section.split("\n").map((num) => parseInt(num));
+const parseSection = (section) => section.split("\n").map(num => +num);
 
 const parseInput = (rawInput) => rawInput.split("\n\n").map(parseSection).map(calculateSum);
 
