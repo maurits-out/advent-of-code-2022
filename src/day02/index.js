@@ -1,6 +1,6 @@
 import run from "aocrunner";
 
-const totalScore = (rawInput, scoreTable) => rawInput.split("\n").map(round => scoreTable[round]).reduce((acc, n) => acc + n);
+const totalScore = (rawInput, scoreTable) => rawInput.split("\n").reduce((acc, round) => acc + scoreTable[round], 0);
 
 const part1 = (rawInput) => {
   const scoreTable = {
