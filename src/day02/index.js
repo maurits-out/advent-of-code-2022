@@ -1,6 +1,7 @@
 import run from "aocrunner";
 
-const totalScore = (rawInput, scoreTable) => rawInput.split("\n").reduce((acc, round) => acc + scoreTable[round], 0);
+const totalScore = (rawInput, scoreTable) =>
+  rawInput.split("\n").reduce((acc, round) => acc + scoreTable[round], 0);
 
 const part1 = (rawInput) => {
   const scoreTable = {
@@ -12,7 +13,7 @@ const part1 = (rawInput) => {
     "B Z": 9,
     "C X": 7,
     "C Y": 2,
-    "C Z": 6
+    "C Z": 6,
   };
   return totalScore(rawInput, scoreTable);
 };
@@ -27,7 +28,7 @@ const part2 = (rawInput) => {
     "B Z": 9,
     "C X": 2,
     "C Y": 6,
-    "C Z": 7
+    "C Z": 7,
   };
   return totalScore(rawInput, scoreTable);
 };
