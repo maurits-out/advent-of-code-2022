@@ -8,8 +8,7 @@ const findMarker = (input, numDistinctCharacters) => {
       return i;
     }
   }
-  return undefined;
-}
+};
 
 const part1 = (input) => findMarker(input, 4);
 
