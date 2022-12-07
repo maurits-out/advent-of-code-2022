@@ -50,9 +50,8 @@ const part2 = (rawInput) => {
   let available = 70_000_000 - getTotalFileSize(directories[0]);
   let matchingTotalFileSizes = directories
     .map((node) => getTotalFileSize(node))
-    .sort((a, b) => a - b)
     .filter((size) => available + size >= 30_000_000);
-  return matchingTotalFileSizes[0];
+  return Math.min(...matchingTotalFileSizes);
 };
 
 run({
