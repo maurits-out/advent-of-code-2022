@@ -27,7 +27,7 @@ const parseInput = (rawInput) => {
         directories.push(node);
         break;
       default:
-        current.fileSize += parseInt(cmd[0]);
+        current.fileSize += +cmd[0];
     }
   });
   return directories;
@@ -36,13 +36,12 @@ const parseInput = (rawInput) => {
 const getTotalFileSize = (node) =>
   Array.from(node.dirs)
     .filter(([name, _]) => name != "..")
-    .map(([_, child]) => child)
-    .reduce((acc, child) => acc + getTotalFileSize(child), node.fileSize);
+    .reduce((acc, [_, child]) => acc + getTotalFileSize(child), node.fileSize);
 
 const part1 = (rawInput) =>
   parseInput(rawInput)
     .map((node) => getTotalFileSize(node))
-    .filter((size) => size <= 100000)
+    .filter((size) => size <= 100_000)
     .reduce((acc, size) => acc + size, 0);
 
 const part2 = (rawInput) => {
