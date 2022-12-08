@@ -40,11 +40,35 @@ const part2 = (rawInput) => {
 
 run({
   part1: {
-    tests: [],
+    tests: [
+      {
+        input: `
+        vJrwpWtwJgWrhcsFMMfFFhFp
+        jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+        PmmdzqPrVvPwwTWBwg
+        wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+        ttgJtRGJQctTZtZT
+        CrZsJsPPZsGzwwsLwLmpwMDw
+      `,
+        expected: 157,
+      },      
+    ],
     solution: part1,
   },
   part2: {
-    tests: [],
+    tests: [
+      {
+        input: `
+        vJrwpWtwJgWrhcsFMMfFFhFp
+        jqHRNqRjqzjGDLGLrsFMfFZSrLrFZsSL
+        PmmdzqPrVvPwwTWBwg
+        wMqvLMZHhHMvwLHjbvcjnnSBnvTQFn
+        ttgJtRGJQctTZtZT
+        CrZsJsPPZsGzwwsLwLmpwMDw
+      `,
+        expected: 70,
+      },      
+    ],
     solution: part2,
   },
   trimTestInputs: true,
