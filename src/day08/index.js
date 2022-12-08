@@ -22,7 +22,7 @@ const isVisible = (heightMap, row, column) => {
 const distance = (height, trees) => {
   const d = range(trees.length).filter((t) => trees[t] >= height);
   return d.length > 0 ? d[0] + 1 : trees.length;
-}
+};
 
 const scenicScore = (heightMap, row, column) => {
   const left = heightMap[row].slice(0, column).reverse();
@@ -30,7 +30,7 @@ const scenicScore = (heightMap, row, column) => {
   const up = heightMap.slice(0, row).map((r) => r[column]).reverse();
   const down = heightMap.slice(row + 1).map((r) => r[column]);
   const height = heightMap[row][column];
-  return distance(height, left) * distance(height, right) * distance(height, up) * distance(height, down)
+  return distance(height, left) * distance(height, right) * distance(height, up) * distance(height, down);
 };
 
 const part1 = (rawInput) => {
@@ -40,9 +40,7 @@ const part1 = (rawInput) => {
 
 const part2 = (rawInput) => {
   const heightMap = parseInput(rawInput);
-  const scores = coordinates(heightMap).map(([r, c]) =>
-    scenicScore(heightMap, r, c),
-  );
+  const scores = coordinates(heightMap).map(([r, c]) => scenicScore(heightMap, r, c));
   return Math.max(...scores);
 };
 
