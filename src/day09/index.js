@@ -41,7 +41,6 @@ const applyMotions = (motions, numKnots) => {
       visited.add(knots.at(-1).toString());
     }
   });
-
   return visited.size;
 };
 
