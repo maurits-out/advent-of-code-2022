@@ -26,10 +26,7 @@ const moveFollower = ([tr, tc], [hr, hc]) => {
 };
 
 const applyMotions = (motions, numKnots) => {
-  const knots = new Array(numKnots);
-  for (let k = 0; k < numKnots; k++) {
-    knots[k] = [0, 0];
-  }
+  const knots = new Array(numKnots).fill().map(() => [0, 0]);
   const visited = new Set();
   visited.add(knots.at(-1).toString());
   motions.forEach(([direction, numSteps]) => {
