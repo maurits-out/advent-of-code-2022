@@ -3,7 +3,7 @@ import run from "aocrunner";
 const parseInput = (rawInput) =>
   rawInput.split("\n").map((line) => [line[0], +line.substring(2)]);
 
-const move = ([row, column], direction) => {
+const moveHead = ([row, column], direction) => {
   switch (direction) {
     case "L":
       return [row, column - 1];
@@ -34,7 +34,7 @@ const applyMotions = (motions, numKnots) => {
   visited.add(knots.at(-1).toString());
   motions.forEach(([direction, numSteps]) => {
     for (let step = 0; step < numSteps; step++) {
-      knots[0] = move(knots[0], direction);
+      knots[0] = moveHead(knots[0], direction);
       for (let k = 1; k < knots.length; k++) {
         knots[k] = moveFollower(knots[k], knots[k - 1]);
       }
