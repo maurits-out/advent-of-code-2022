@@ -1,9 +1,12 @@
 import run from "aocrunner";
 
-const totalScore = (rawInput, scoreTable) =>
-  rawInput.split("\n").reduce((acc, round) => acc + scoreTable[round], 0);
+function totalScore(rawInput, scoreTable) {
+  return rawInput
+    .split("\n")
+    .reduce((acc, round) => acc + scoreTable[round], 0);
+}
 
-const part1 = (rawInput) => {
+function part1(rawInput) {
   const scoreTable = {
     "A X": 4,
     "A Y": 8,
@@ -13,12 +16,12 @@ const part1 = (rawInput) => {
     "B Z": 9,
     "C X": 7,
     "C Y": 2,
-    "C Z": 6,
+    "C Z": 6
   };
   return totalScore(rawInput, scoreTable);
 };
 
-const part2 = (rawInput) => {
+function part2(rawInput) {
   const scoreTable = {
     "A X": 3,
     "A Y": 4,
@@ -28,7 +31,7 @@ const part2 = (rawInput) => {
     "B Z": 9,
     "C X": 2,
     "C Y": 6,
-    "C Z": 7,
+    "C Z": 7
   };
   return totalScore(rawInput, scoreTable);
 };
@@ -42,10 +45,10 @@ run({
         B X
         C Z
       `,
-        expected: 15,
-      },        
+        expected: 15
+      },
     ],
-    solution: part1,
+    solution: part1
   },
   part2: {
     tests: [
@@ -55,10 +58,10 @@ run({
         B X
         C Z
       `,
-        expected: 12,
-      },              
+        expected: 12
+      },
     ],
-    solution: part2,
+    solution: part2
   },
   trimTestInputs: true,
   onlyTests: false,
