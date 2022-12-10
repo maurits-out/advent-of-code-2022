@@ -27,21 +27,23 @@ function commonItemTypeInRucksacks(rucksack1, rucksack2, rucksack3) {
   );
 }
 
-const part1 = (rawInput) =>
-  parseInput(rawInput)
+function part1(rawInput) {
+  return parseInput(rawInput)
     .map((rucksack) => commonItemTypeInRucksack(rucksack))
     .map((itemType) => priority(itemType))
     .reduce((acc, priority) => acc + priority, 0);
+}
 
-const part2 = (rawInput) => {
+function part2(rawInput) {
   const rucksacks = parseInput(rawInput);
   let sum = 0;
   for (let groupIndex = 0; groupIndex < rucksacks.length; groupIndex += 3) {
-    let group = rucksacks.slice(groupIndex, groupIndex + 3);
-    sum += priority(commonItemTypeInRucksacks(...group));
+    const group = rucksacks.slice(groupIndex, groupIndex + 3);
+    const itemType = commonItemTypeInRucksacks(...group);
+    sum += priority(itemType);
   }
   return sum;
-};
+}
 
 run({
   part1: {
@@ -55,10 +57,10 @@ run({
         ttgJtRGJQctTZtZT
         CrZsJsPPZsGzwwsLwLmpwMDw
       `,
-        expected: 157
-      }
+        expected: 157,
+      },
     ],
-    solution: part1
+    solution: part1,
   },
   part2: {
     tests: [
@@ -71,11 +73,11 @@ run({
         ttgJtRGJQctTZtZT
         CrZsJsPPZsGzwwsLwLmpwMDw
       `,
-        expected: 70
-      }
+        expected: 70,
+      },
     ],
-    solution: part2
+    solution: part2,
   },
   trimTestInputs: true,
-  onlyTests: false
+  onlyTests: false,
 });
