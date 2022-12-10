@@ -19,7 +19,7 @@ function part1(rawInput) {
     "C Z": 6
   };
   return totalScore(rawInput, scoreTable);
-};
+}
 
 function part2(rawInput) {
   const scoreTable = {
@@ -34,7 +34,7 @@ function part2(rawInput) {
     "C Z": 7
   };
   return totalScore(rawInput, scoreTable);
-};
+}
 
 run({
   part1: {
@@ -65,4 +65,4 @@ run({
   },
   trimTestInputs: true,
   onlyTests: false,
-});
+})
