@@ -4,8 +4,8 @@ const parseInput = (rawInput) =>
   rawInput.split("\n").map((line) => line.split(" "));
 
 const runProgram = (program) => {
+  const cycles = new Map();
   let x = 1;
-  let cycles = new Map();
   let currentCycle = 1;
   program.forEach((instruction) => {
     switch (instruction[0]) {
@@ -40,8 +40,8 @@ const part2 = (rawInput) => {
   for (let row = 0; row < 6; row++) {
     crt[row] = new Array(40);
     for (let column = 0; column < 40; column++) {
-      let cycle = row * 40 + column + 1;
-      let sprite = cycles.get(cycle);
+      const cycle = row * 40 + column + 1;
+      const sprite = cycles.get(cycle);
       if (sprite - 1 <= column && column <= sprite + 1) {
         crt[row][column] = "#";
       } else {
