@@ -1,19 +1,26 @@
 import run from "aocrunner";
 
-const parseInput = (rawInput) =>
-  rawInput
+function parseInput(rawInput) {
+  return rawInput
     .split("\n")
     .map((line) => line.match(/\d+/g))
-    .map((ss) => ss.map((s) => +s));
+    .map((ss) => ss.map((s) => Number(s)));
+}
 
-const solve = (rawInput, predicate) =>
-  parseInput(rawInput).filter(predicate).length;
+function solve(rawInput, predicate) {
+  return parseInput(rawInput).filter(predicate).length;
+}
 
-const part1 = (rawInput) =>
-  solve(rawInput, ([a, b, c, d]) => (a <= c && d <= b) || (c <= a && b <= d));
+function part1(rawInput) {
+  return solve(
+    rawInput,
+    ([a, b, c, d]) => (a <= c && d <= b) || (c <= a && b <= d),
+  );
+}
 
-const part2 = (rawInput) =>
-  solve(rawInput, ([a, b, c, d]) => !(b < c || d < a));
+function part2(rawInput) {
+  return solve(rawInput, ([a, b, c, d]) => !(b < c || d < a));
+}
 
 run({
   part1: {
@@ -28,9 +35,9 @@ run({
         2-6,4-8
       `,
         expected: 2,
-      },
+      }
     ],
-    solution: part1,
+    solution: part1
   },
   part2: {
     tests: [
@@ -44,10 +51,10 @@ run({
         2-6,4-8
       `,
         expected: 4,
-      },      
+      }
     ],
-    solution: part2,
+    solution: part2
   },
   trimTestInputs: true,
-  onlyTests: false,
+  onlyTests: false
 });
