@@ -50,10 +50,10 @@ function play(monkeys, roundCount, worryReliever) {
 }
 
 function calculateMonkeyBusiness(monkeys) {
-  const sortedInspectionCounts = monkeys
+  const [count1, count2] = monkeys
     .map((monkey) => monkey.inspectionCount)
-    .sort((a, b) => a - b);
-  return sortedInspectionCounts.at(-1) * sortedInspectionCounts.at(-2);
+    .sort((a, b) => b - a);
+  return count1 * count2;
 }
 
 function part1(rawInput) {
@@ -64,9 +64,7 @@ function part1(rawInput) {
 
 function part2(rawInput) {
   const monkeys = parseInput(rawInput);
-  const lcm = monkeys
-    .map((monkey) => monkey.divider)
-    .reduce((acc, d) => acc * d, 1);
+  const lcm = monkeys.reduce((acc, monkey) => acc * monkey.divider, 1);
   play(monkeys, 10000, (worryLevel) => worryLevel % lcm);
   return calculateMonkeyBusiness(monkeys);
 }
