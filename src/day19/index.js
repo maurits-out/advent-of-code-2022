@@ -96,8 +96,9 @@ function canBuildRobot(resourceType, state, blueprint) {
   const currentRobotCount = state.robotCounts.get(resourceType);
   if (
     resourceType !== Geode &&
-    currentRobotCount * state.timeRemaining + state.resourceCounts.get(resourceType) >=
-      (blueprint.max.get(resourceType) * state.timeRemaining)
+    currentRobotCount * state.timeRemaining +
+      state.resourceCounts.get(resourceType) >=
+      blueprint.max.get(resourceType) * state.timeRemaining
   ) {
     return false;
   }
@@ -136,9 +137,15 @@ function updateBuiltRobot(state) {
 function maxNumGeodesPossible(state) {
   const timeRemaining = state.timeRemaining;
   const currentAmountOfGeodes = state.resourceCounts.get(Geode);
-  const amountToBeProducedByCurrentRobots = timeRemaining * state.robotCounts.get(Geode);
-  const maxAmountToBeProducedByNewRobots = (timeRemaining * (timeRemaining - 1)) / 2
-  return currentAmountOfGeodes + amountToBeProducedByCurrentRobots + maxAmountToBeProducedByNewRobots;
+  const amountToBeProducedByCurrentRobots =
+    timeRemaining * state.robotCounts.get(Geode);
+  const maxAmountToBeProducedByNewRobots =
+    (timeRemaining * (timeRemaining - 1)) / 2;
+  return (
+    currentAmountOfGeodes +
+    amountToBeProducedByCurrentRobots +
+    maxAmountToBeProducedByNewRobots
+  );
 }
 
 function copyState(state) {
@@ -235,12 +242,7 @@ run({
     solution: part1,
   },
   part2: {
-    tests: [
-      // {
-      //   input: ``,
-      //   expected: "",
-      // },
-    ],
+    tests: [],
     solution: part2,
   },
   trimTestInputs: true,
