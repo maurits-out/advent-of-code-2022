@@ -35,17 +35,6 @@ class Jobs {
     }
   }
 
-  containsHuman(name) {
-    if (name === "humn") {
-      return true;
-    }
-    const instr = this.#jobs.get(name);
-    if (instr.length === 1) {
-      return false;
-    }
-    return this.containsHuman(instr[0]) || this.containsHuman(instr[2]);
-  }
-
   fixRootOperation() {
     this.#jobs.get("root")[1] = "=";
   }
@@ -72,14 +61,14 @@ class Jobs {
   }
 
   #getValueOfHumanForEquals(left, right) {
-    if (this.containsHuman(left)) {
+    if (this.#containsHuman(left)) {
       return this.getValueOfHuman(left, this.getNumber(right));
     }
     return this.getValueOfHuman(right, this.getNumber(left));
   }
 
   #getValueOfHumanForPlus(left, right, expected) {
-    if (this.containsHuman(left)) {
+    if (this.#containsHuman(left)) {
       const newExpected = expected - this.getNumber(right);
       return this.getValueOfHuman(left, newExpected);
     }
@@ -88,7 +77,7 @@ class Jobs {
   }
 
   #getValueOfHumanForMinus(left, right, expected) {
-    if (this.containsHuman(left)) {
+    if (this.#containsHuman(left)) {
       const newExpected = expected + this.getNumber(right);
       return this.getValueOfHuman(left, newExpected);
     }
@@ -97,7 +86,7 @@ class Jobs {
   }
 
   #getValueOfHumanForMultiply(left, right, expected) {
-    if (this.containsHuman(left)) {
+    if (this.#containsHuman(left)) {
       const newExpected = expected / this.getNumber(right);
       return this.getValueOfHuman(left, newExpected);
     }
@@ -106,12 +95,23 @@ class Jobs {
   }
 
   #getValueOfHumanForfDivide(left, right, expected) {
-    if (this.containsHuman(left)) {
+    if (this.#containsHuman(left)) {
       const newExpected = expected * this.getNumber(right);
       return this.getValueOfHuman(left, newExpected);
     }
     const newExpected = this.getNumber(left) / expected;
     return this.getValueOfHuman(right, newExpected);
+  }
+
+  #containsHuman(name) {
+    if (name === "humn") {
+      return true;
+    }
+    const instr = this.#jobs.get(name);
+    if (instr.length === 1) {
+      return false;
+    }
+    return this.#containsHuman(instr[0]) || this.#containsHuman(instr[2]);
   }
 }
 
