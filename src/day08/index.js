@@ -1,48 +1,65 @@
 import run from "aocrunner";
 
-const range = (n) => [...Array(n).keys()];
+function range(n) {
+  return [...Array(n).keys()];
+}
 
-const coordinates = (heightMap) =>
-  range(heightMap.length).flatMap((r) =>
+function coordinates(heightMap) {
+  return range(heightMap.length).flatMap((r) =>
     range(heightMap[r].length).map((c) => [r, c]),
   );
+}
 
-const parseInput = (rawInput) =>
-  rawInput.split("\n").map((line) => line.split("").map((ch) => +ch));
+function parseInput(rawInput) {
+  return rawInput
+    .split("\n")
+    .map((line) => line.split("").map((ch) => Number(ch)));
+}
 
-const isVisible = (heightMap, row, column) => {
+function isVisible(heightMap, row, column) {
   const left = Math.max(...heightMap[row].slice(0, column));
   const right = Math.max(...heightMap[row].slice(column + 1));
   const up = Math.max(...heightMap.slice(0, row).map((r) => r[column]));
   const down = Math.max(...heightMap.slice(row + 1).map((r) => r[column]));
   const height = heightMap[row][column];
   return height > left || height > right || height > up || height > down;
-};
+}
 
-const distance = (height, trees) => {
+function distance(height, trees) {
   const d = range(trees.length).filter((t) => trees[t] >= height);
   return d.length > 0 ? d[0] + 1 : trees.length;
-};
+}
 
-const scenicScore = (heightMap, row, column) => {
+function scenicScore(heightMap, row, column) {
   const left = heightMap[row].slice(0, column).reverse();
   const right = heightMap[row].slice(column + 1);
-  const up = heightMap.slice(0, row).map((r) => r[column]).reverse();
+  const up = heightMap
+    .slice(0, row)
+    .map((r) => r[column])
+    .reverse();
   const down = heightMap.slice(row + 1).map((r) => r[column]);
   const height = heightMap[row][column];
-  return distance(height, left) * distance(height, right) * distance(height, up) * distance(height, down);
-};
+  return (
+    distance(height, left) *
+    distance(height, right) *
+    distance(height, up) *
+    distance(height, down)
+  );
+}
 
-const part1 = (rawInput) => {
+function part1(rawInput) {
   const heightMap = parseInput(rawInput);
-  return coordinates(heightMap).filter(([r, c]) => isVisible(heightMap, r, c)).length;
-};
+  return coordinates(heightMap).filter(([r, c]) => isVisible(heightMap, r, c))
+    .length;
+}
 
-const part2 = (rawInput) => {
+function part2(rawInput) {
   const heightMap = parseInput(rawInput);
-  const scores = coordinates(heightMap).map(([r, c]) => scenicScore(heightMap, r, c));
+  const scores = coordinates(heightMap).map(([r, c]) =>
+    scenicScore(heightMap, r, c),
+  );
   return Math.max(...scores);
-};
+}
 
 run({
   part1: {
