@@ -5,7 +5,7 @@ function sum(numbers) {
 }
 
 function parseSection(section) {
-  return section.split("\n").map((num) => Number(num));
+  return section.split("\n").map(Number);
 }
 
 function parseInput(rawInput) {

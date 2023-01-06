@@ -4,7 +4,7 @@ function parseInput(rawInput) {
   return rawInput
     .split("\n")
     .map((line) => line.match(/\d+/g))
-    .map((ss) => ss.map((s) => Number(s)));
+    .map((s) => s.map(Number));
 }
 
 function solve(rawInput, predicate) {

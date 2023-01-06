@@ -73,7 +73,7 @@ class Valley {
     );
   }
 
-  #adjacentLocations(row, column) {
+  #nextLocations(row, column) {
     return [
       [row, column],
       [row - 1, column],
@@ -87,7 +87,7 @@ class Valley {
     const blizzardKeys = new Set(this.#blizzards.map(this.#key));
     const result = new Set();
     expeditions.forEach((expedition) => {
-      this.#adjacentLocations(...this.#coordinates(expedition))
+      this.#nextLocations(...this.#coordinates(expedition))
         .filter(([r, c]) => this.#isNonWall(r, c, from, to))
         .map(([r, c]) => this.#key({ row: r, column: c }))
         .filter((k) => !blizzardKeys.has(k))
