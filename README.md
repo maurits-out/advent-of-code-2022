@@ -69,182 +69,182 @@ npm start 1
 
 ```
 Day 01
-Time part 1: 0.579ms
-Time part 2: 0.573ms
-Both parts: 1.15219ms
+Time part 1: 0.623ms
+Time part 2: 0.644ms
+Both parts: 1.267ms
 ```
 
 ```
 Day 02
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 0.442ms
+Time part 2: 0.52ms
+Both parts: 0.962ms
 ```
 
 ```
 Day 03
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 0.542ms
+Time part 2: 0.323ms
+Both parts: 0.865ms
 ```
 
 ```
 Day 04
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 2.625ms
+Time part 2: 1.008ms
+Both parts: 3.634ms
 ```
 
 ```
 Day 05
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 3.738ms
+Time part 2: 2.837ms
+Both parts: 6.575ms
 ```
 
 ```
 Day 06
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 1.964ms
+Time part 2: 6.169ms
+Both parts: 8.133ms
 ```
 
 ```
 Day 07
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 4.136ms
+Time part 2: 4.257ms
+Both parts: 8.393ms
 ```
 
 ```
 Day 08
-Time part 1: 73.912ms
-Time part 2: 194.27ms
-Both parts: 268.182644ms
+Time part 1: 34.403ms
+Time part 2: 147.602ms
+Both parts: 182.005ms
 ```
 
 ```
 Day 09
-Time part 1: 12.292ms
-Time part 2: 15.436ms
-Both parts: 27.727542999999997ms
+Time part 1: 13.432ms
+Time part 2: 15.036ms
+Both parts: 28.468ms
 ```
 
 ```
 Day 10
-Time part 1: 0.196ms
-Time part 2: -
-Both parts: 0.195513ms
+Time part 1: 0.181ms
+Time part 2: 0.49ms
+Both parts: 0.671ms
 ```
 
 ```
 Day 11
-Time part 1: -
-Time part 2: -
-Both parts: -
+Time part 1: 5.631ms
+Time part 2: 53.145ms
+Both parts: 58.776ms
 ```
 
 ```
 Day 12
-Time part 1: 49.734ms
-Time part 2: 1898.051ms
-Both parts: 1947.7851320000002ms
+Time part 1: 41.586ms
+Time part 2: 1935.098ms
+Both parts: 1976.684ms
 ```
 
 ```
 Day 13
-Time part 1: 1.322ms
-Time part 2: 4.796ms
-Both parts: 6.1177589999999995ms
+Time part 1: 1.226ms
+Time part 2: 3.722ms
+Both parts: 4.948ms
 ```
 
 ```
 Day 14
-Time part 1: 61.518ms
-Time part 2: 1265.974ms
-Both parts: 1327.491739ms
+Time part 1: 54.357ms
+Time part 2: 1197.373ms
+Both parts: 1251.73ms
 ```
 
 ```
 Day 15
-Time part 1: 0.655ms
-Time part 2: -
-Both parts: 0.654957ms
+Time part 1: 0.797ms
+Time part 2: 1744.456ms
+Both parts: 1745.252ms
 ```
 
 ```
 Day 16
-Time part 1: 931.947ms
-Time part 2: 1034.049ms
-Both parts: 1965.996126ms
+Time part 1: 902.751ms
+Time part 2: 994.135ms
+Both parts: 1896.886ms
 ```
 
 ```
 Day 17
-Time part 1: 99.962ms
-Time part 2: 57.141ms
-Both parts: 157.10245ms
+Time part 1: 59.843ms
+Time part 2: 49.457ms
+Both parts: 109.3ms
 ```
 
 ```
 Day 18
-Time part 1: 11.503ms
-Time part 2: 4168.977ms
-Both parts: 4180.480583ms
+Time part 1: 11.636ms
+Time part 2: 4295.903ms
+Both parts: 4307.54ms
 ```
 
 ```
 Day 19
-Time part 1: 0.046ms
-Time part 2: 176962.247ms
-Both parts: 176962.29292799998ms
+Time part 1: 126193.372ms
+Time part 2: 130886.273ms
+Both parts: 257079.645ms
 ```
 
 ```
 Day 20
-Time part 1: 63.595ms
-Time part 2: 1446.861ms
-Both parts: 1510.455827ms
+Time part 1: 46.325ms
+Time part 2: 397.526ms
+Both parts: 443.851ms
 ```
 
 ```
 Day 21
-Time part 1: 4.162ms
-Time part 2: 5.791ms
-Both parts: 9.953488ms
+Time part 1: 4.824ms
+Time part 2: 6.688ms
+Both parts: 11.512ms
 ```
 
 ```
 Day 22
-Time part 1: 28.571ms
-Time part 2: 30.848ms
-Both parts: 59.419523999999996ms
+Time part 1: 7.441ms
+Time part 2: 5.925ms
+Both parts: 13.366ms
 ```
 
 ```
 Day 23
-Time part 1: 175.755ms
-Time part 2: 10175.739ms
-Both parts: 10351.493162ms
+Time part 1: 195.969ms
+Time part 2: 10021.814ms
+Both parts: 10217.783ms
 ```
 
 ```
 Day 24
-Time part 1: 389.392ms
-Time part 2: 1036.06ms
-Both parts: 1425.452368ms
+Time part 1: 418.156ms
+Time part 2: 1072.492ms
+Both parts: 1490.648ms
 ```
 
 ```
 Day 25
-Time part 1: -
+Time part 1: 0.673ms
 Time part 2: -
-Both parts: -
+Both parts: 0.673ms
 ```
 
 ```
-Total stars: 32/50
-Total time: 200201.954ms
+Total stars: 50/50
+Total time: 280849.567ms
 ```
 
 <!--/RESULTS-->
