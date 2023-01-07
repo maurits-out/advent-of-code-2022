@@ -1,9 +1,12 @@
 import run from "aocrunner";
 
-const parseInput = (rawInput) =>
-  rawInput.split("\n").map((line) => [line[0], +line.substring(2)]);
+function parseInput(rawInput) {
+  return rawInput
+    .split("\n")
+    .map((line) => [line[0], Number(line.substring(2))]);
+}
 
-const moveHead = ([row, column], direction) => {
+function moveHead([row, column], direction) {
   switch (direction) {
     case "L":
       return [row, column - 1];
@@ -14,36 +17,40 @@ const moveHead = ([row, column], direction) => {
     case "D":
       return [row - 1, column];
   }
-};
+}
 
-const moveFollower = ([tr, tc], [hr, hc]) => {
+function moveFollower([tr, tc], [hr, hc]) {
   const dc = hc - tc;
   const dr = hr - tr;
   if (Math.abs(dr) <= 1 && Math.abs(dc) <= 1) {
     return [tr, tc];
   }
   return [tr + Math.sign(dr), tc + Math.sign(dc)];
-};
+}
 
-const applyMotions = (motions, numKnots) => {
-  const knots = new Array(numKnots).fill().map(() => [0, 0]);
+function applyMotions(motions, knotCount) {
+  const knots = new Array(knotCount).fill().map(() => [0, 0]);
   const visited = new Set();
   visited.add(knots.at(-1).toString());
-  motions.forEach(([direction, numSteps]) => {
-    for (let step = 0; step < numSteps; step++) {
+  motions.forEach(([direction, stepCount]) => {
+    for (let step = 0; step < stepCount; step++) {
       knots[0] = moveHead(knots[0], direction);
-      for (let k = 1; k < knots.length; k++) {
-        knots[k] = moveFollower(knots[k], knots[k - 1]);
+      for (let i = 1; i < knots.length; i++) {
+        knots[i] = moveFollower(knots[i], knots[i - 1]);
       }
       visited.add(knots.at(-1).toString());
     }
   });
   return visited.size;
-};
+}
 
-const part1 = (rawInput) => applyMotions(parseInput(rawInput), 2);
+function part1(rawInput) {
+  return applyMotions(parseInput(rawInput), 2);
+}
 
-const part2 = (rawInput) => applyMotions(parseInput(rawInput), 10);
+function part2(rawInput) {
+  return applyMotions(parseInput(rawInput), 10);
+}
 
 run({
   part1: {

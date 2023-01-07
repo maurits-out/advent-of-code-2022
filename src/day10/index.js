@@ -1,56 +1,57 @@
 import run from "aocrunner";
 
-const parseInput = (rawInput) =>
-  rawInput.split("\n").map((line) => line.split(" "));
+function parseInput(rawInput) {
+  return rawInput.split("\n").map((line) => line.split(" "));
+}
 
-const runProgram = (program) => {
+function runProgram(program) {
   const cycles = new Map();
   let x = 1;
-  let currentCycle = 1;
+  let cycle = 1;
   program.forEach((instruction) => {
     switch (instruction[0]) {
       case "addx":
-        cycles.set(currentCycle, x);
-        cycles.set(currentCycle + 1, x);
-        currentCycle += 2;
-        x += +instruction[1];
+        cycles.set(cycle, x);
+        cycles.set(cycle + 1, x);
+        cycle += 2;
+        x += Number(instruction[1]);
         break;
       case "noop":
-        cycles.set(currentCycle, x);
-        currentCycle++;
+        cycles.set(cycle, x);
+        cycle++;
         break;
     }
   });
   return cycles;
-};
+}
 
-const part1 = (rawInput) => {
+function part1(rawInput) {
   const program = parseInput(rawInput);
   const cycles = runProgram(program);
-  return [20, 60, 100, 140, 180, 220].reduce(
-    (acc, cycle) => acc + cycle * cycles.get(cycle),
-    0,
-  );
-};
+  return [20, 60, 100, 140, 180, 220]
+    .map((c) => c * cycles.get(c))
+    .reduce((acc, n) => acc + n, 0);
+}
 
-const part2 = (rawInput) => {
+function part2(rawInput) {
   const program = parseInput(rawInput);
   const cycles = runProgram(program);
-  const crt = new Array(6);
-  for (let row = 0; row < 6; row++) {
-    crt[row] = new Array(40);
-    for (let column = 0; column < 40; column++) {
-      const cycle = row * 40 + column + 1;
+  const crt = [];
+  for (let r = 0; r < 6; r++) {
+    const row = [];
+    for (let c = 0; c < 40; c++) {
+      const cycle = r * 40 + c + 1;
       const sprite = cycles.get(cycle);
-      if (sprite - 1 <= column && column <= sprite + 1) {
-        crt[row][column] = "#";
+      if (sprite - 1 <= c && c <= sprite + 1) {
+        row.push("#");
       } else {
-        crt[row][column] = ".";
+        row.push(".");
       }
     }
+    crt.push(row);
   }
-  return crt.map(row => row.join("")).join("\n");
-};
+  return crt.map((row) => row.join("")).join("\n");
+}
 
 run({
   part1: {
@@ -210,12 +211,7 @@ run({
     solution: part1,
   },
   part2: {
-    tests: [
-      // {
-      //   input: ``,
-      //   expected: "",
-      // },
-    ],
+    tests: [],
     solution: part2,
   },
   trimTestInputs: true,

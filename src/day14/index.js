@@ -7,7 +7,7 @@ function parseLine(line) {
 }
 
 function expandPath(path) {
-  const result = []
+  const result = [];
   for (let i = 0; i < path.length - 1; i++) {
     const [fx, fy] = path[i];
     const [tx, ty] = path[i + 1];
@@ -25,11 +25,14 @@ function expandPath(path) {
 }
 
 function parseInput(rawInput) {
-  const points = rawInput.split("\n").map((line) => parseLine(line)).flatMap(path => expandPath(path));
+  const points = rawInput
+    .split("\n")
+    .map((line) => parseLine(line))
+    .flatMap((path) => expandPath(path));
   const abyssMarker = Math.max(...points.map(([_, y]) => y)) + 2;
   return {
-    rocks: new Set(points.map(p => p.toString())),
-    abyssMarker: abyssMarker
+    rocks: new Set(points.map((p) => p.toString())),
+    abyssMarker: abyssMarker,
   };
 }
 
@@ -66,7 +69,7 @@ function part1(rawInput) {
       isAtRest = true;
       occupied.add(sand.toString());
       break;
-    }  
+    }
   }
   return sandAtRestCount;
 }
@@ -75,9 +78,9 @@ const part2 = (rawInput) => {
   const { rocks, abyssMarker } = parseInput(rawInput);
 
   const occupied = rocks;
-  const start = [500, 0];
+  const start = [500, 0].toString();
   let sandAtRestCount = 0;
-  while (!occupied.has(start.toString())) {
+  while (!occupied.has(start)) {
     let sand = [500, 0];
     let isAtRest = false;
     while (!isAtRest) {
@@ -96,13 +99,13 @@ const part2 = (rawInput) => {
         if (!occupied.has(diagRight.toString())) {
           sand = diagRight;
           continue;
-        }  
+        }
       }
       sandAtRestCount++;
       isAtRest = true;
       occupied.add(sand.toString());
       break;
-    }  
+    }
   }
   return sandAtRestCount;
 };
